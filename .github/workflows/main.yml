@@ -10,9 +10,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Upload ftp 
-        uses: SamKirkland/FTP-Deploy-Action@3.1.1
+      - uses: shivammathur/setup-php@v2
         with:
-          ftp-server: ${{ secrets.FTP_SERVER }}
-          ftp-username: ${{ secrets.FTP_USER }}
-          ftp-password: ${{ secrets.FTP_PASSWORD }}
+          php-version: "7.4"
+      - name: Install Composer depedencies
+        uses: ramsey/composer-install@1.1.0
+      - name: Upload ftp 
+        uses: sand4rt/ftp-deployer@v1.1
+        with:
+          host: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USER }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          remote-folder: ./public_html
+          clean_up: true
