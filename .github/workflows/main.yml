@@ -11,11 +11,11 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Upload ftp
-        uses: GenieTim/ftp-action@v4.0.1
+        uses: airvzxf/ftp-deployment-action@latest
         with:
-          host: ${{ secrets.FTP_SERVER }}
+          server: ${{ secrets.FTP_SERVER }}
           user: ${{ secrets.FTP_USER }}
           password: ${{ secrets.FTP_PASSWORD }}
-          localdir: .
-          remoteDir: public_html
+          remote_dir: ./public_html
+          delete: true
      
