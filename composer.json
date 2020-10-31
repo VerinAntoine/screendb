@@ -1,0 +1,21 @@
+{
+    "autoload": {
+        "psr-4": {
+            "App\\": "src"
+        }
+    },
+    "name": "antoine/screendb",
+    "require": {
+        "altorouter/altorouter": "^2.0",
+        "filp/whoops": "^2.9"
+    },
+    "require-dev": {
+        "fzaninotto/faker": "^1.9"
+    },
+    "authors": [
+        {
+            "name": "RedSkyi",
+            "email": "24255551+RedSkyi@users.noreply.github.com"
+        }
+    ]
+}
