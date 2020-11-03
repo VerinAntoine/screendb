@@ -16,7 +16,9 @@ class Database {
 
     public function __construct()
     {
-        $this->pdo = new PDO('mysql:dbname=screendb;host=127.0.0.1', 'antoine', 'password', [
+        $config = require(dirname(__DIR__) . '/config.php');
+        print_r($config);
+        $this->pdo = new PDO("mysql:dbname=$config->db_name;host=$config->db_host", $config->db_user, $config->db_password, [
             PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
         ]);
     }
