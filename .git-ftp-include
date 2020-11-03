@@ -1,2 +1,8 @@
 vendor/:composer.lock
-.htaccess
+.github/
+commands/
+sql/
+.gitignore
+composer.json
+composer.lock
+serve.sh
