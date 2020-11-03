@@ -2,9 +2,24 @@
 
 use App\DAO\ScreenDAO;
 
+$scripts[] = '/assets/screens.js';
+
 $dao = new ScreenDAO();
-$screens = $dao->selectAll();
+
+if(empty($_GET) || empty($_GET['q']))
+    $screens = $dao->selectAll();
+else{
+    $screens = $dao->selectLike($_GET['q']);
+}
 ?>
+
+<div class="flex my-3 mx-4 items-center">
+    <i class="fas fa-search"></i>
+    <form method="get">
+        <input class="w-full ml-3 focus:outline-none" name="q" type="text" placeholder="Rechercher.." autocomplete="off">
+    </form>
+</div>
+
 
 <div class="grid lg:grid-cols-3 gap-6">
     <?php foreach($screens as $screen): ?>
@@ -25,17 +40,3 @@ $screens = $dao->selectAll();
     </div>
     <?php endforeach ?>
 </div>
-
-<script>
-    function copy(str) {
-        const el = document.createElement('textarea');
-        el.value = str;
-        el.setAttribute('readonly', '');
-        el.style.position = 'absolute';
-        el.style.left = '-9999px';
-        document.body.appendChild(el);
-        el.select();
-        document.execCommand('copy');
-        document.body.removeChild(el);
-    }
-</script>

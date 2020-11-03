@@ -1,6 +1,7 @@
 <?php
 namespace App\DAO;
 
+use App\Exception\NotFoundException;
 use App\Model\User;
 use PDO;
 
@@ -16,7 +17,10 @@ class UserDAO extends DAO {
         $query = $this->pdo->prepare("SELECT * FROM {$this->table} WHERE username = :username");
         $query->execute(array(':username' => $username));
         $query->setFetchMode(PDO::FETCH_CLASS, User::class);
-        return $query->fetch();
+        $user = $query->fetch();
+        if($user === false)
+            throw new NotFoundException("Aucun utilisateur trouvé pour le nom '$username'");
+        return $user;
     }
 
     public function findById(int $id): User
@@ -24,14 +28,10 @@ class UserDAO extends DAO {
         $query = $this->pdo->prepare("SELECT * FROM {$this->table} WHERE id = :id");
         $query->execute(array(':id' => $id));
         $query->setFetchMode(PDO::FETCH_CLASS, User::class);
-        return $query->fetch();
-    }
-
-    public function findPasswordById(int $id): string
-    {
-        $query = $this->pdo->prepare("SELECT password FROM {$this->table} WHERE id = :id");
-        $query->execute(array(":id" => $id));
-        return $query->fetch();
+        $user = $query->fetch();
+        if($user === false)
+            throw new NotFoundException("Aucun utilisateur trouvé pour l'id '$id'");
+        return $user;
     }
 
 }

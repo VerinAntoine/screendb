@@ -1,6 +1,7 @@
 <?php
 
 use App\DAO\UserDAO;
+use App\Exception\NotFoundException;
 
 $layout = 'auth.php';
 $errors = [];
@@ -9,15 +10,19 @@ if(!empty($_POST)) {
     if(empty($_POST['username']) && empty($_POST['password'])) {
         $errors[] = "Préciser un nom d'utilisateur et un mot de passe";
     }else{
-        $dao = new UserDAO();
-        $user = $dao->findByUsername($_POST['username']);
-        if(password_verify($_POST['password'], $user->getPassword()) === true) {
-            session_start();
-            $_SESSION['auth'] = $user->getId();
-            header('Location: ' . $router->url('screens'));
-            exit();
-        }else{
-            $errors[] = "Mot de passe ou utlisateur incorrect";
+        try{
+            $dao = new UserDAO();
+            $user = $dao->findByUsername($_POST['username']);
+            if(password_verify($_POST['password'], $user->getPassword()) === true) {
+                session_start();
+                $_SESSION['auth'] = $user->getId();
+                header('Location: ' . $router->url('screens'));
+                exit();
+            }else{
+                $errors[] = "Mot de passeincorrect";
+            }
+        }catch(NotFoundException $e) {
+            $errors[] = "Nom d'utilisateur incorect";
         }
     }
 }

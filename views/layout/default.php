@@ -7,7 +7,11 @@
     <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
 </head>
 <body>
-    <?php require $layout; ?>
     <script src="https://kit.fontawesome.com/7f49e9bfee.js" crossorigin="anonymous"></script>
+    <?php require $layout; ?>
+
+    <?php foreach($scripts as $script): ?>
+    <script src="<?= $script ?>"></script>
+    <?php endforeach ?>
 </body>
 </html>

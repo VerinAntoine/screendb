@@ -33,6 +33,7 @@ class Router {
         $match = $this->router->match();
         $path = $match['target'];
         $layout = 'main.php';
+        $scripts = [];
         $router = $this;
 
         ob_start();
