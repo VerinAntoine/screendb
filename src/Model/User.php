@@ -1,6 +1,7 @@
 <?php
 namespace App\Model;
 
+use App\DAO\PermissionDAO;
 use \DateTime;
 
 class User {
@@ -9,6 +10,13 @@ class User {
     private string $username;
     private string $password;
     private string $createdAt;
+    private array $permissions;
+
+    public function __construct()
+    {
+        $dao = new PermissionDAO();
+        $this->permissions = $dao->getPermissionsForUser($this->id);
+    }
 
     public function getId(): ?int
     {
@@ -28,5 +36,21 @@ class User {
     public function getCreatedAt(): ?DateTime
     {
         return new DateTime($this->createdAt);
+    }
+
+    public function getPermissions(): ?array
+    {
+        return $this->permissions;
+    }
+
+    public function hasPermission(array $perms): bool
+    {
+        $contains = false;
+        foreach($this->permissions as $permission) {
+            if(in_array($permission->getCode(), $perms)) {
+                $contains = true;
+            }
+        }
+        return $contains;
     }
 }

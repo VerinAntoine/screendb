@@ -1,6 +1,8 @@
 .github/
 commands/
 sql/
+.git-ftp-ignore
+.git-ftp-include
 .gitignore
 composer.json
 composer.lock

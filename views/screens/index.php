@@ -2,7 +2,7 @@
 
 use App\DAO\ScreenDAO;
 
-$scripts[] = '/assets/screens.js';
+$scripts[] = '/assets/js/screens.js';
 
 $dao = new ScreenDAO();
 

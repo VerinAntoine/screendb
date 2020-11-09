@@ -10,4 +10,5 @@ $router
     ->getAndPost('/login', 'auth/login.php', 'login')
     ->get('/logout', 'auth/logout.php', 'logout')
     ->get('/screens', 'screens/index.php', 'screens')
+    ->get('/admin', 'admin/index.php', 'admin')
     ->run();
