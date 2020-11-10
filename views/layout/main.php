@@ -37,6 +37,6 @@ JS;
         </ul>
     </div>
 </nav>
-<div class="container m-2">
+<div class="m-2">
     <?= $content ?>
 </div>

@@ -33,7 +33,7 @@ else{
 </div>
 
 
-<div class="grid lg:grid-cols-3 gap-6">
+<div class="w-full grid lg:grid-cols-3 xl:grid-cols-4 gap-6">
     <?php foreach($screens as $screen): ?>
     <div class="bg-white border border-gray-400 rounded">
         <div class="flex flex-col bg-gray-700 items-center">

@@ -1,6 +1,6 @@
-.github/
-commands/
-sql/
+*/.github
+*/commands
+*/sql
 .git-ftp-ignore
 .git-ftp-include
 .gitignore

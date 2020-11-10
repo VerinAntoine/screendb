@@ -32,7 +32,7 @@ class Router {
     public function run() {
         $match = $this->router->match();
         $path = $match['target'];
-        $layout = 'main.php';
+        $layout = '/layout/main.php';
         $scripts = [];
         $router = $this;
 

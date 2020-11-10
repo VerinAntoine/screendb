@@ -3,7 +3,7 @@
 use App\DAO\UserDAO;
 use App\Exception\NotFoundException;
 
-$layout = 'auth.php';
+$layout = '/auth/layout.php';
 $errors = [];
 
 if(!empty($_POST)) {
@@ -35,7 +35,7 @@ if(!empty($_POST)) {
 <?php endforeach ?>
 
 <div class="h-screen flex justify-center items-center">
-    <form class="w-1/4 bg-white rounded p-6" method="post">
+    <form class="bg-white rounded p-6" method="post">
         <h1 class="mb-5 text-gray-700 text-xl">Connectez-Vous</h1>
         <div class="flex bg-gray-300 items-center divide-x divide-gray-500 px-3 py-3 mb-2">
             <i class="fas fa-user mr-3"></i>
