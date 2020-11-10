@@ -8,7 +8,20 @@ if(!$auth->isLogged()) {
 
 $admin = $auth->getUser()->hasPermission(array("admin"));
 
-$scripts[] = "/assets/js/layout.js";
+$scripts[] = <<< JS
+function dropdownShow(element) {
+    getDropdown(element).classList.remove("hidden");
+}
+
+function dropdownHide(element) {
+    getDropdown(element).classList.add("hidden");
+}
+
+function getDropdown(from) {
+    var f = from.getAttribute("data-toggle");
+    return document.getElementById(f);
+}
+JS;
 ?>
 
 <!-- Nav bar -->

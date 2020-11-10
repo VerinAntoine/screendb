@@ -11,7 +11,7 @@
     <?php require $layout; ?>
 
     <?php foreach($scripts as $script): ?>
-    <script src="<?= $script ?>"></script>
+    <script><?= $script ?></script>
     <?php endforeach ?>
 </body>
 </html>

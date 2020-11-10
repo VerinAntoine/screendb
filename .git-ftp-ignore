@@ -6,4 +6,5 @@ sql/
 .gitignore
 composer.json
 composer.lock
-serve.shs
+serve.sh
+config.php
