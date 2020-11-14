@@ -22,9 +22,21 @@ class Screen {
         return $this->name;
     }
 
+    public function setName(string $name)
+    {
+        $this->name = $name;
+        return $this;
+    }
+
     public function getAuthor(): ?string
     {
         return $this->author;
+    }
+
+    public function setAuthor(string $author)
+    {
+        $this->author = $author;
+        return $this;
     }
 
     public function getUrl(): ?string
@@ -32,9 +44,21 @@ class Screen {
         return $this->url;
     }
 
+    public function setUrl(string $url)
+    {
+        $this->url = $url;
+        return $this;
+    }
+
     public function getCreatedBy(): ?int //? Return User?
     {
         return $this->createdBy;
+    }
+
+    public function setCreatedBy(int $id)
+    {
+        $this->createdBy = $id;
+        return $this;
     }
 
     public function getCreatedAt(): ?DateTime

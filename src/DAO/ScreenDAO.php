@@ -24,4 +24,15 @@ class ScreenDAO extends DAO {
         return $query->fetchAll(PDO::FETCH_CLASS, Screen::class);
     }
 
+    public function insert(Screen $screen)
+    {
+        $query = $this->pdo->prepare("INSERT INTO {$this->table} (name, author, url, created_by) VALUES (:name, :author, :url, :created_by)");
+        $query->execute(array(
+            ":name" => $screen->getName(),
+            ":author" => $screen->getAuthor(),
+            ":url" => $screen->getUrl(),
+            "created_by" => $screen->getCreatedBy()
+        ));
+    }
+
 }
