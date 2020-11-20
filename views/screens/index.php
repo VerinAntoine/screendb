@@ -33,9 +33,9 @@ else{
 </div>
 
 
-<div class="w-full grid lg:grid-cols-3 gap-6">
+<div class="w-full flex flex-wrap">
     <?php foreach($screens as $screen): ?>
-    <div class="bg-white border border-gray-400 rounded">
+    <div class="bg-white border border-gray-400 rounded flex-grow m-2">
         <div class="flex flex-col bg-gray-700 items-center">
             <img src="<?= $screen->getUrl() ?>" alt="" />
         </div>
