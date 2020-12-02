@@ -18,3 +18,5 @@ Type `./serve -o` on project's folder
 
 * On Windows:
 Launch a php server to the public folder
+
+Don't forget to update the `config.php` file with your own credentials
