@@ -17,10 +17,11 @@ class ScreenDAO extends DAO {
         return $query->fetchAll(PDO::FETCH_CLASS, Screen::class);
     }
 
-    public function selectLike(string $like): array
+    public function selectLike(string $likeQ, string $likeA): array
     {
-        $query = $this->pdo->prepare("SELECT * FROM {$this->table} WHERE name LIKE :like");
-        $query->execute(array(":like" => "%$like%"));
+        $query = $this->pdo->prepare("SELECT * FROM {$this->table} WHERE name LIKE :likeQ AND author LIKE :likeA");
+        $query->execute(array(":likeQ" => "%$likeQ%",
+        		              ":likeA" => "%$likeA%"));
         return $query->fetchAll(PDO::FETCH_CLASS, Screen::class);
     }
 
