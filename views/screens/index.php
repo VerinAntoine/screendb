@@ -18,17 +18,19 @@ JS;
 
 $dao = new ScreenDAO();
 
-if(empty($_GET) || empty($_GET['q']))
+if(empty($_GET) || (empty($_GET['q']) && empty($_GET['a'])))
     $screens = $dao->selectAll();
 else{
-    $screens = $dao->selectLike($_GET['q']);
+    $screens = $dao->selectLike($_GET['q'], $_GET['a']);
 }
 ?>
 
 <div class="flex my-3 mx-4 items-center">
     <i class="fas fa-search"></i>
-    <form method="get">
-        <input class="w-full ml-3 focus:outline-none" name="q" type="text" placeholder="Rechercher.." autocomplete="off">
+    <form method="get" class="flex">
+        <input class="w-full ml-3 focus:outline-none" name="a" type="text" placeholder="Auteur" autocomplete="off">
+        <input class="w-full ml-3 focus:outline-none" name="q" type="text" placeholder="Texte" autocomplete="off">
+	    <input type="submit" class="hidden">
     </form>
 </div>
 
