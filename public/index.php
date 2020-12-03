@@ -7,6 +7,7 @@ $whoops->register();
 
 $router = new App\Router(dirname(__DIR__) . '/views/');
 $router
+    ->get('/', '', 'root')
     ->getAndPost('/login', 'auth/login.php', 'login')
     ->get('/logout', 'auth/logout.php', 'logout')
     ->get('/screens', 'screens/index.php', 'screens')

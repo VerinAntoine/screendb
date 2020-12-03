@@ -36,6 +36,11 @@ class Router {
         $scripts = [];
         $router = $this;
 
+        if($match['name'] == "root") {
+            header('Location: ' . $this->url('screens'));
+            return;
+        }
+
         ob_start();
         require $this->viewsPath . $path;
         $content = ob_get_clean();
