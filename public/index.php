@@ -13,4 +13,5 @@ $router
     ->get('/screens', 'screens/index.php', 'screens')
     ->getAndPost('/screens/add', 'screens/add.php', 'screens-add')
     ->get('/admin', 'admin/index.php', 'admin')
+    ->get('/admin/screens', 'admin/screens.php', 'admin-screens')
     ->run();

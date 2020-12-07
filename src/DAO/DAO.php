@@ -15,4 +15,10 @@ class DAO {
         $this->pdo = Database::getInstance()->getPDO();
     }
 
+    public function getCount(): int {
+        $query = $this->pdo->prepare("SELECT count(id) FROM " . $this->table);
+        $query->execute();
+        return $query->fetch()[0];
+    }
+
 }
