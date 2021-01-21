@@ -18,9 +18,21 @@ class Router {
         return $this;
     }
 
+    public function post(string $url, string $path, string $name): self
+    {
+        $this->router->map("POST", $url, $path, $name);
+        return $this;
+    }
+
     public function getAndPost(string $url, string $path, string $name): self
     {
         $this->router->map('GET|POST', $url, $path, $name);
+        return $this;
+    }
+
+    public function map(string $method, string $url, string $path, string $name): self
+    {
+        $this->router->map($method, $url, $path, $name);
         return $this;
     }
 
@@ -32,6 +44,7 @@ class Router {
     public function run() {
         $match = $this->router->match();
         $path = $match['target'];
+        $params = $match['params'];
         $layout = '/layout/main.php';
         $scripts = [];
         $router = $this;

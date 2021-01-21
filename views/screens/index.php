@@ -37,8 +37,8 @@ else{
 
 <div class="w-full flex flex-wrap">
     <?php foreach($screens as $screen): ?>
-    <div class="bg-white border border-gray-400 rounded flex-grow m-2">
-        <div class="flex flex-col bg-gray-700 items-center">
+    <div class="flex flex-col justify-between bg-white border border-gray-400 rounded flex-grow m-2">
+        <div class="flex flex-col justify-center h-full bg-gray-700 items-center">
             <img src="<?= $screen->getUrl() ?>" alt="" />
         </div>
         <div class="m-2 flex">

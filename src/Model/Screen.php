@@ -9,8 +9,8 @@ class Screen {
     private string $name;
     private string $author;
     private string $url;
-    private int $createdBy;
-    private string $createdAt;
+    private int $created_by;
+    private string $created_at;
     
     public function getId(): ?int
     {
@@ -52,7 +52,7 @@ class Screen {
 
     public function getCreatedBy(): ?int //? Return User?
     {
-        return $this->createdBy;
+        return $this->created_by;
     }
 
     public function setCreatedBy(int $id)
