@@ -13,6 +13,8 @@ class Auth {
         }
     }
 
+    //* TODO: Fonction login (actuellement dans login.php)
+
     public function getUser(): User
     {
         $dao = new UserDAO();
