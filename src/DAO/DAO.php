@@ -22,7 +22,7 @@ class DAO {
     }
 
     public function delete(int $id) {
-        $query = $this->pdo->prepare("DELETE * FROM :table WHERE id = :id");
+        $query = $this->pdo->prepare("DELETE FROM :table WHERE id = :id");
         $query->execute(array(
                 ":table" => $this->table,
                 ":id" => $id)
