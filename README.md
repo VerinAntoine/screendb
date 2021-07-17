@@ -1,6 +1,6 @@
 # ScreenDb
 
-ScreenDb is an project who repertories some quotes and images as screens, and offer to copy a link to the images.
+ScreenDb is a project who repertories some quotes and images as screens, and offer to copy a link to the images.
 You can access ScreenDb [here](https://screendb.000webhostapp.com/screens)!
 
 ### Depedencies
